@@ -1,0 +1,40 @@
+﻿{
+  "Parent": [ "None" ],
+  "Children": [
+    {
+      "Type": "SolarSystem",
+      "Mean": 1000,
+      "StdDev": 300
+    }
+  ],
+  "Position": "Any",
+  "Velocity": "Any",
+  "Mass": {
+    "Mean": 1e10,
+    "StdDev": 2e9
+  },
+  "Radius": {
+    "Mean": 1000,
+    "StdDev": 800
+  },
+  "Influence": {
+    "Mean": 1e15,
+    "StdDev": 4e14
+  },
+  "Temperature": {
+    "Mean": 10,
+    "StdDev": 1
+  },
+  "Composition": [
+    {
+      "Compound": "Iron",
+      "Mean": 0.5,
+      "StdDev": 0.3
+    },
+    {
+      "Compound": "Calcium",
+      "Mean": 0.3,
+      "StdDev": 0.1
+    }
+  ]
+}
