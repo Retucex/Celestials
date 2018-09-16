@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Celestials.Generators;
-using MathNet.Numerics;
-using MathNet.Numerics.LinearAlgebra;
+﻿using Celestials.Generators;
 
 namespace Celestials.Tester
 {

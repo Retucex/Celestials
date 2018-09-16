@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Celestials
+﻿namespace Celestials
 {
 	public class Star : Celestial
 	{

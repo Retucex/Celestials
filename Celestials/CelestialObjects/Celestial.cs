@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Celestials.Generators;
 using MathNet.Numerics.LinearAlgebra;
 
 namespace Celestials

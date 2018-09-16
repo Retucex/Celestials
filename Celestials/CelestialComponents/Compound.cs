@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Celestials
+﻿namespace Celestials
 {
 	public class Compound
 	{

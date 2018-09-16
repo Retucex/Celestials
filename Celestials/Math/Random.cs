@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Celestials.Math
+﻿namespace Celestials.Math
 {
 	public static class Random
 	{
