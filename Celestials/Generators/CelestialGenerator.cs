@@ -42,6 +42,9 @@ namespace Celestials.Generators
 		{
 			try
 			{
+				//TODO Use reflection to assign properties. https://stackoverflow.com/questions/1089123/setting-a-property-by-reflection-with-a-string-value
+				//Should be able to do without class-specific generation method ie. remove OnGeneration() call. Deal with that in json
+
 				var celestial = new T();
 
 				celestial.Parent = parent;
@@ -58,7 +61,7 @@ namespace Celestials.Generators
 					celestial.Composition.Add(new Tuple<Compound, double>(new Compound() { Name = type }, concentration));
 				}
 
-				celestial.UpdateInternals();
+				celestial.OnGeneration();
 				celestial.SetIdentifier();
 
 				foreach (var child in rules.Children)

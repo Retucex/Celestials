@@ -11,6 +11,7 @@ namespace Celestials.Tester
 			logger.Trace("Program Start");
 			Celestials.Math.Random.SetSeed(5432);
 
+			//TODO find a better way to handle first generation. This ugly
 			var galaxyGen = new CelestialGenerator<Galaxy>(new CelestialRulesParser<Galaxy>(), null);
 			var galaxy = galaxyGen.Generate(1)[0] as Galaxy;
 

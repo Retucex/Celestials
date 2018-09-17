@@ -38,6 +38,7 @@ namespace Celestials
 			Composition = composition == null ? Composition : composition;
 		}
 
+		//TODO think of better way to handle this. This is eww
 		public virtual void SetIdentifier()
 		{
 			if (Parent != null)
@@ -46,7 +47,7 @@ namespace Celestials
 				Identifier = $"{this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(Math.Random.Next() * 1000)}";
 		}
 
-		public virtual void UpdateInternals()
+		public virtual void OnGeneration()
 		{ }
 
 		public override string ToString()
