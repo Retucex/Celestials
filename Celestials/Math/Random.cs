@@ -7,6 +7,10 @@
 
 		public static double Next() => 1.0 - rand.NextDouble();
 
+		public static int NextInt(int max) => rand.Next(max);
+
+		public static int NextInt(int min, int max) => rand.Next(min, max);
+
 		public static void SetSeed(int seed)
 		{
 			logger.Trace("Set Random Engine seed: {0}", seed);

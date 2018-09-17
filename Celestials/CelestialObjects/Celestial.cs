@@ -12,10 +12,12 @@ namespace Celestials
 		public Vector<double> Velocity { get; set; } = VectorMatrix.VBuilder.Dense(3);
 		public double Mass { get; set; }
 		public double Radius { get; set; }
+		public double Influence { get; set; }
 		public double Temperature { get; set; }
 		public List<Tuple<Compound, double>> Composition { get; set; } = new List<Tuple<Compound, double>>();
 		public double Volume => (4.0 / 3.0) * System.Math.PI * System.Math.Pow(Radius, 3);
 		public double Density => Mass / Volume;
+		public string Identifier { get; set; }
 
 		public Celestial(Celestial parent = null,
 						List<Celestial> children = null,
@@ -34,6 +36,22 @@ namespace Celestials
 			Radius = radius;
 			Temperature = temperature;
 			Composition = composition == null ? Composition : composition;
+		}
+
+		public virtual void SetIdentifier()
+		{
+			if (Parent != null)
+				Identifier = $"{Parent.Identifier} - {this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(Math.Random.Next() * 1000)}";
+			else
+				Identifier = $"{this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(Math.Random.Next() * 1000)}";
+		}
+
+		public virtual void UpdateInternals()
+		{ }
+
+		public override string ToString()
+		{
+			return Identifier;
 		}
 	}
 }

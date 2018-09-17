@@ -46,6 +46,21 @@ namespace Celestials.Generators
 
 				celestial.Parent = parent;
 
+				celestial.Mass = Math.Random.GeneratePositiveGaussian((double)rules.Mass.Mean, (double)rules.Mass.StdDev);
+				celestial.Radius = Math.Random.GeneratePositiveGaussian((double)rules.Radius.Mean, (double)rules.Radius.StdDev);
+				celestial.Influence = Math.Random.GeneratePositiveGaussian((double)rules.Influence.Mean, (double)rules.Influence.StdDev);
+				celestial.Temperature = Math.Random.GeneratePositiveGaussian((double)rules.Temperature.Mean, (double)rules.Temperature.StdDev);
+
+				foreach (var compound in rules.Composition)
+				{
+					string type = compound.Compound;
+					var concentration = Math.Random.GeneratePositiveGaussian((double)rules.Temperature.Mean, (double)rules.Temperature.StdDev);
+					celestial.Composition.Add(new Tuple<Compound, double>(new Compound() { Name = type }, concentration));
+				}
+
+				celestial.UpdateInternals();
+				celestial.SetIdentifier();
+
 				foreach (var child in rules.Children)
 				{
 					var qty = Math.Random.GeneratePositiveGaussian((double)child.Mean, (double)child.StdDev);
