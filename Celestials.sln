@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Celestials", "Celestials\Celestials.csproj", "{87C9A2B0-7AF0-4A3D-B0F4-FF1F9F09D702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Celestials.Tester", "Celestials.Tester\Celestials.Tester.csproj", "{40BC1B47-AA7D-47AD-8495-F4C8DC2352E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Celestials.Tester", "Celestials.Tester\Celestials.Tester.csproj", "{40BC1B47-AA7D-47AD-8495-F4C8DC2352E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLib", "..\HelperLib\HelperLib\HelperLib.csproj", "{4D9FA165-C67B-44B9-83B9-42FCCBA0D99A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{40BC1B47-AA7D-47AD-8495-F4C8DC2352E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40BC1B47-AA7D-47AD-8495-F4C8DC2352E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40BC1B47-AA7D-47AD-8495-F4C8DC2352E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9FA165-C67B-44B9-83B9-42FCCBA0D99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9FA165-C67B-44B9-83B9-42FCCBA0D99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9FA165-C67B-44B9-83B9-42FCCBA0D99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9FA165-C67B-44B9-83B9-42FCCBA0D99A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

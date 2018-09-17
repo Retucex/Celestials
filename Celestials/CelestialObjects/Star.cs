@@ -1,4 +1,5 @@
 ﻿using System;
+using static HelperLib.Types.EnumHelper;
 
 namespace Celestials
 {
@@ -9,16 +10,16 @@ namespace Celestials
 		public Star()
 		{
 			//TODO remove logic from constructor. Add to json. Or calculate dynamically based on mass and stuff
-			var lumClasses = Enum.GetValues(typeof(StellarClass.LuminosityClass));
-			var lumClass = (StellarClass.LuminosityClass)lumClasses.GetValue(Math.Random.NextInt(lumClasses.Length));
+			//var lumClasses = Enum.GetValues(typeof(StellarClass.LuminosityClass));
+			//var lumClass = (StellarClass.LuminosityClass)lumClasses.GetValue(HelperLib.Math.Random.NextInt(lumClasses.Length));
 
-			var specTypes = Enum.GetValues(typeof(StellarClass.SpectralType));
-			var specType = (StellarClass.SpectralType)specTypes.GetValue(Math.Random.NextInt(specTypes.Length));
+			//var specTypes = Enum.GetValues(typeof(StellarClass.SpectralType));
+			//var specType = (StellarClass.SpectralType)specTypes.GetValue(HelperLib.Math.Random.NextInt(specTypes.Length));
 
-			var specIntensity = Math.Random.NextInt(1, 9);
+			var specIntensity = HelperLib.Math.Random.NextInt(1, 9);
 
-			StellarClass.LumClass = lumClass;
-			StellarClass.SpecType = specType;
+			StellarClass.LumClass = (StellarClass.LuminosityClass)StellarClass.LumClass.GetRandom();
+			StellarClass.SpecType = (StellarClass.SpectralType)StellarClass.SpecType.GetRandom();
 			StellarClass.SpecIntensity = specIntensity;
 		}
 
@@ -28,7 +29,7 @@ namespace Celestials
 
 		public override void SetIdentifier()
 		{
-			Identifier = $"{StellarClass}-{(int)(Math.Random.Next() * 1000)}";
+			Identifier = $"{StellarClass}-{(int)(HelperLib.Math.Random.Next() * 1000)}";
 		}
 	}
 }

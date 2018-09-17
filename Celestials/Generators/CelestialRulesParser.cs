@@ -8,14 +8,14 @@ namespace Celestials.Generators
 	{
 		private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-		private string JSONFilename => $"Rules/{typeof(T).Name}.json";
+		private string JSONFilename => $"{typeof(T).Name}.json";
 
 		public dynamic ParseRules()
 		{
 			try
 			{
 				logger.Trace("Parsing file {0}", JSONFilename);
-				var rulesFile = File.ReadAllText($"Generators/{JSONFilename}");
+				var rulesFile = File.ReadAllText($"Generators/Rules/{JSONFilename}");
 				dynamic rules = JObject.Parse(rulesFile);
 
 				return rules;

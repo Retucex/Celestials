@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\HelperLib\HelperLib\HelperLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Generators\CelestialRulesParser.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>

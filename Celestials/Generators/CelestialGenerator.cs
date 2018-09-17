@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using static HelperLib.Math.Random;
 
 namespace Celestials.Generators
 {
@@ -49,15 +50,15 @@ namespace Celestials.Generators
 
 				celestial.Parent = parent;
 
-				celestial.Mass = Math.Random.GeneratePositiveGaussian((double)rules.Mass.Mean, (double)rules.Mass.StdDev);
-				celestial.Radius = Math.Random.GeneratePositiveGaussian((double)rules.Radius.Mean, (double)rules.Radius.StdDev);
-				celestial.Influence = Math.Random.GeneratePositiveGaussian((double)rules.Influence.Mean, (double)rules.Influence.StdDev);
-				celestial.Temperature = Math.Random.GeneratePositiveGaussian((double)rules.Temperature.Mean, (double)rules.Temperature.StdDev);
+				celestial.Mass = GeneratePositiveGaussian((double)rules.Mass.Mean, (double)rules.Mass.StdDev);
+				celestial.Radius = GeneratePositiveGaussian((double)rules.Radius.Mean, (double)rules.Radius.StdDev);
+				celestial.Influence = GeneratePositiveGaussian((double)rules.Influence.Mean, (double)rules.Influence.StdDev);
+				celestial.Temperature = GeneratePositiveGaussian((double)rules.Temperature.Mean, (double)rules.Temperature.StdDev);
 
 				foreach (var compound in rules.Composition)
 				{
 					string type = compound.Compound;
-					var concentration = Math.Random.GeneratePositiveGaussian((double)rules.Temperature.Mean, (double)rules.Temperature.StdDev);
+					var concentration = GeneratePositiveGaussian((double)rules.Temperature.Mean, (double)rules.Temperature.StdDev);
 					celestial.Composition.Add(new Tuple<Compound, double>(new Compound() { Name = type }, concentration));
 				}
 
@@ -66,7 +67,7 @@ namespace Celestials.Generators
 
 				foreach (var child in rules.Children)
 				{
-					var qty = Math.Random.GeneratePositiveGaussian((double)child.Mean, (double)child.StdDev);
+					var qty = GeneratePositiveGaussian((double)child.Mean, (double)child.StdDev);
 
 					var childType = asm.GetType("Celestials." + child.Type);
 					var genType = typeof(CelestialGenerator<>).MakeGenericType(childType);

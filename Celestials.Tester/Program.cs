@@ -8,8 +8,10 @@ namespace Celestials.Tester
 
 		private static void Main(string[] args)
 		{
+			HelperLib.Log.InitializeNLogConfig();
+
 			logger.Trace("Program Start");
-			Celestials.Math.Random.SetSeed(5432);
+			HelperLib.Math.Random.SetSeed(5432);
 
 			//TODO find a better way to handle first generation. This ugly
 			var galaxyGen = new CelestialGenerator<Galaxy>(new CelestialRulesParser<Galaxy>(), null);

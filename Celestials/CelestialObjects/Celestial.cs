@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MathNet.Numerics.LinearAlgebra;
+using HelperLib;
 
 namespace Celestials
 {
@@ -42,9 +43,9 @@ namespace Celestials
 		public virtual void SetIdentifier()
 		{
 			if (Parent != null)
-				Identifier = $"{Parent.Identifier} - {this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(Math.Random.Next() * 1000)}";
+				Identifier = $"{Parent.Identifier} - {this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(HelperLib.Math.Random.Next() * 1000)}";
 			else
-				Identifier = $"{this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(Math.Random.Next() * 1000)}";
+				Identifier = $"{this.GetType().Name.Substring(0, 2).ToUpper()}{(int)(HelperLib.Math.Random.Next() * 1000)}";
 		}
 
 		public virtual void OnGeneration()
