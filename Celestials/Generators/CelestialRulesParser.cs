@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using System.IO;
 using Newtonsoft.Json.Linq;
 
@@ -18,7 +19,45 @@ namespace Celestials.Generators
 				var rulesFile = File.ReadAllText($"Generators/Rules/{JSONFilename}");
 				dynamic rules = JObject.Parse(rulesFile);
 
-				return rules;
+				dynamic parsedRules = new ExpandoObject();
+				foreach (var attrib in rules)
+				{
+					switch (attrib.Name)
+					{
+						case "Parent":
+							break;
+
+						case "Children":
+							break;
+
+						case "Position":
+							break;
+
+						case "Velocity":
+							break;
+
+						case "Mass":
+							break;
+
+						case "Radius":
+							break;
+
+						case "Influence":
+							break;
+
+						case "Temperature":
+							break;
+
+						case "Composition":
+							break;
+
+						default:
+							logger.Warn("Unrecognized rule: {0}\nValue: {1}", attrib.Name, attrib.Value);
+							break;
+					}
+				}
+
+				return parsedRules;
 			}
 			catch (Exception ex)
 			{

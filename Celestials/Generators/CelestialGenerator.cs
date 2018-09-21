@@ -7,7 +7,7 @@ namespace Celestials.Generators
 {
 	public class CelestialGenerator<T> : IGenerator<T> where T : Celestial, new()
 	{
-		private static Assembly asm = typeof(CelestialGenerator<>).Assembly;
+		private static Assembly asm = Assembly.GetExecutingAssembly();
 		private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 		private dynamic rules;
 		private Celestial parent;
@@ -27,7 +27,7 @@ namespace Celestials.Generators
 				var celestials = new List<T>();
 				for (int i = 0; i < qty; i++)
 				{
-					var celestial = CreateCelestial();
+					var celestial = CreateCelestial2();
 					celestials.Add(celestial);
 				}
 				return celestials;
@@ -39,13 +39,25 @@ namespace Celestials.Generators
 			}
 		}
 
+		private T CreateCelestial2()
+		{
+			//TODO Use reflection to assign properties. https://stackoverflow.com/questions/1089123/setting-a-property-by-reflection-with-a-string-value
+			//Should be able to do without class-specific generation method ie. remove OnGeneration() call. Deal with that in json
+
+			foreach (var attrib in rules)
+			{
+			}
+			return new T();
+			//Ship ship = new Ship();
+			//string value = "5.5";
+			//PropertyInfo propertyInfo = ship.GetType().GetProperty("Latitude");
+			//propertyInfo.SetValue(ship, Convert.ChangeType(value, propertyInfo.PropertyType), null);
+		}
+
 		private T CreateCelestial()
 		{
 			try
 			{
-				//TODO Use reflection to assign properties. https://stackoverflow.com/questions/1089123/setting-a-property-by-reflection-with-a-string-value
-				//Should be able to do without class-specific generation method ie. remove OnGeneration() call. Deal with that in json
-
 				var celestial = new T();
 
 				celestial.Parent = parent;

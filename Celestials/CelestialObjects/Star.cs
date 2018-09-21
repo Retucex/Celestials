@@ -10,11 +10,6 @@ namespace Celestials
 		public Star()
 		{
 			//TODO remove logic from constructor. Add to json. Or calculate dynamically based on mass and stuff
-			//var lumClasses = Enum.GetValues(typeof(StellarClass.LuminosityClass));
-			//var lumClass = (StellarClass.LuminosityClass)lumClasses.GetValue(HelperLib.Math.Random.NextInt(lumClasses.Length));
-
-			//var specTypes = Enum.GetValues(typeof(StellarClass.SpectralType));
-			//var specType = (StellarClass.SpectralType)specTypes.GetValue(HelperLib.Math.Random.NextInt(specTypes.Length));
 
 			var specIntensity = HelperLib.Math.Random.NextInt(1, 9);
 
